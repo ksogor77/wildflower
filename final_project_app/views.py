@@ -29,18 +29,17 @@ def article_create(request):
     return render(request, 'article_create.html')
 
 def blog_main(request):
-    return render(request, 'blog_main.html')
-
-def blog_create(request):
-    return render(request, 'blog_create.html')
+    blogs = Blog.objects.all()
+    context = {'blogs': blogs}
+    return render(request, 'blog_main.html', context)
 
 ############# Blog Show and Create ###################
 
 @csrf_exempt
 def blog_view(request, blog_pk):
     blog = Blog.objects.get(id=blog_pk)
-    # context = {'title': title, 'body': body}
-    return render(request, 'blog_view.html')
+    context = {'blog': blog}
+    return render(request, 'blog_view.html', context)
 
 @login_required
 def blog_create(request):
