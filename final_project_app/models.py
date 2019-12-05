@@ -1,15 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-class User(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    user_name = models.CharField(max_length=24)
-    email = models.TextField()
-    password = models.CharField(max_length=24)
-    date_joined = models.DateTimeField(auto_now_add=True)
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    image_link = models.TextField()
+    # image_upload = models.ImageField(upload_to='prof_images/')
 
     def __str__(self):
-        return self.user_name
+        return self.user.username
 
 class Article(models.Model):
     title = models.CharField(max_length=255)

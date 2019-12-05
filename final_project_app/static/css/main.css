@@ -3,7 +3,28 @@
     padding: 0;
 }
 
+:root {
+    --light-aqua: #B2DBD5;
+    --dark-aqua: #2B616D;
+    --white: #FFFFFF;
+    --brick: #FA8D62;
+}
+
+.navbar {
+    background-color: var(--dark-aqua)!important;
+    text-decoration-color: var(--white)!important;
+}
+
+.nav-link {
+    text-decoration-color: var(--white)!important;
+}
+
+
 body {
-    background-color: aquamarine;
-    margin-top: 60px;
+    background-color: var(--light-aqua);
+    margin-top: 200px;
+}
+
+.mission-statement {
+    background-color: var(--brick);
 }
