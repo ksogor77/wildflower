@@ -17,6 +17,24 @@ def test(request):
 def landing(request):
     return render(request, 'landing.html')
 
+def article_main(request):
+    return render(request, 'article_main.html')
+
+def article_view(request):
+    return render(request, 'article_view.html')
+
+def article_create(request):
+    return render(request, 'article_create.html')
+
+def blog_main(request):
+    return render(request, 'blog_main.html')
+
+def blog_view(request):
+    return render(request, 'blog_view.html')
+
+def blog_create(request):
+    return render(request, 'blog_create.html')
+
 ########## Auth Pages ##################
 
 def register(request):
