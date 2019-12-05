@@ -3,33 +3,35 @@
 
 {% block content %}
     <h1>Blog Main Page</h1>
+    {% for blog in blogs %}
     <section class="container row grid">
         <div class="card row grid col-md-4">
-            <h4 class="card-title">Blog Title</h4>
+            <a href="{% url 'blog-view' blog_pk=blog.pk %}">{{blog.title}}</a>
         </div>
         <div class="card row grid col-md-4">
-            <h4 class="card-title">Blog Title</h4>
+            <a href="{% url 'blog-view' blog_pk=blog.pk %}">{{blog.title}}</a>
         </div>
         <div class="card row grid col-md-4">
-            <h4 class="card-title">Blog Title</h4>
+            <a href="{% url 'blog-view' blog_pk=blog.pk %}">{{blog.title}}</a>
         </div>
         <div class="card row grid col-md-4">
-            <h4 class="card-title">Blog Title</h4>
+            <a href="{% url 'blog-view' blog_pk=blog.pk %}">{{blog.title}}</a>
         </div>
         <div class="card row grid col-md-4">
-            <h4 class="card-title">Blog Title</h4>
+            <a href="{% url 'blog-view' blog_pk=blog.pk %}">{{blog.title}}</a>
         </div>
         <div class="card row grid col-md-4">
-            <h4 class="card-title">Blog Title</h4>
+            <a href="{% url 'blog-view' blog_pk=blog.pk %}">{{blog.title}}</a>
         </div>
         <div class="card row grid col-md-4">
-            <h4 class="card-title">Blog Title</h4>
+            <a href="{% url 'blog-view' blog_pk=blog.pk %}">{{blog.title}}</a>
         </div>
         <div class="card row grid col-md-4">
-            <h4 class="card-title">Blog Title</h4>
+            <a href="{% url 'blog-view' blog_pk=blog.pk %}">{{blog.title}}</a>
         </div>
         <div class="card row grid col-md-4">
-            <h4 class="card-title">Blog Title</h4>
+            <a href="{% url 'blog-view' blog_pk=blog.pk %}">{{blog.title}}</a>
         </div>
     </section>
+    {% endfor %}
 {% endblock %}

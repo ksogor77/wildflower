@@ -17,5 +17,4 @@ class BlogForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control col-md-6', 'style': 'margin: 0 auto'}),
             'body': forms.Textarea(attrs={'class': 'form-control col-md-8', 'style': 'margin: 0 auto'}),
-            'user_name': forms.TextInput(attrs={'class': 'form-control col-md-6', 'style': 'margin: 0 auto'})
         }

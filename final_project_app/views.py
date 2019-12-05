@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core import serializers
 from django.template import RequestContext
@@ -34,45 +34,39 @@ def blog_main(request):
 def blog_create(request):
     return render(request, 'blog_create.html')
 
-############# Show and Create ###################
+############# Blog Show and Create ###################
 
 @csrf_exempt
 def blog_view(request, blog_pk):
     blog = Blog.objects.get(id=blog_pk)
-    context = {'title': title, 'body': body}
+    # context = {'title': title, 'body': body}
     return render(request, 'blog_view.html')
 
 @login_required
 def blog_create(request):
     if request.method == 'POST':
-        mutable = request.POST._mutable
-        request.POST._mutable = True
-        request.POST._mutable = mutable
         form = BlogForm(request.POST)
         if form.is_valid():
             blog = form.save(commit=False)
-            blog.creator = request.user
+            blog.user_name = request.user
             blog.save()
-            return redirect('blog_view', blog_pk=blog.pk)
+            return redirect('blog-view', blog_pk=blog.pk)
     else:
         form = BlogForm()
     context = {'form': form, 'header': "Write your blog post here"}
     return render(request, 'blog_create.html', context)
 
-################ Edit and Delete ####################
+################ Blog Edit and Delete ####################
 
 @login_required
 def blog_edit(request, blog_pk):
     blog = Blog.objects.get(id=blog_pk)
     user = request.user
     if request.method == 'POST':
-        mutable = request.POST._mutable
-        request.POST._mutable = True
-        request.POST._mutable = mutable
         form = BlogForm(request.POST, instance=event)
         if form.is_valid():
-            event = form.save()
-            return redirect('blog_view', blog_pk=blog.pk)
+            blog = form.save()
+            return redirect('blog-view', blog_pk=blog.pk)
     else:
         form = BlogForm(instance=blog)
     context = {'form': form, 'header': f"Edit {blog.title}", 'blog': blog, 'user': user}
@@ -83,4 +77,9 @@ def blog_edit(request, blog_pk):
 def blog_delete(request, blog_pk):
     blog = Blog.objects.get(id=blog_pk)
     blog.delete()
-    return render('blog_main') 
+    return render('blog-main') 
+
+############# Article Show and Create ########################
+
+
+############## Article Edit and Delete ######################
