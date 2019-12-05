@@ -1,7 +1,6 @@
 from django import forms
-# from django.forms.widgets import DateTimeInput
 
-from . models import Profile
+from . models import Profile, Blog
 
 class ProfPicForm(forms.ModelForm):
     class Meta:
@@ -9,4 +8,14 @@ class ProfPicForm(forms.ModelForm):
         fields = ('image_link',)
         widgets = {
             'image_link': forms.TextInput(attrs={'class': 'form-control col'})
+        }
+
+class BlogForm(forms.ModelForm):
+    class Meta:
+        model = Blog
+        fields = ('title', 'body')
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control col-md-6', 'style': 'margin: 0 auto'}),
+            'body': forms.Textarea(attrs={'class': 'form-control col-md-8', 'style': 'margin: 0 auto'}),
+            'user_name': forms.TextInput(attrs={'class': 'form-control col-md-6', 'style': 'margin: 0 auto'})
         }

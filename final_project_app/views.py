@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core import serializers
+from django.template import RequestContext
 from django.contrib.auth.models import User
-# from django.contrib.auth.decorators import login_required
-# from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Profile, Article, Blog
+from .forms import BlogForm
 
 # Create your views here.
 
@@ -29,19 +31,56 @@ def article_create(request):
 def blog_main(request):
     return render(request, 'blog_main.html')
 
-def blog_view(request):
-    return render(request, 'blog_view.html')
-
 def blog_create(request):
     return render(request, 'blog_create.html')
 
-########## Auth Pages ##################
+############# Show and Create ###################
 
-def register(request):
-    return render(request, 'register.html')
+@csrf_exempt
+def blog_view(request, blog_pk):
+    blog = Blog.objects.get(id=blog_pk)
+    context = {'title': title, 'body': body}
+    return render(request, 'blog_view.html')
 
-def login(request):
-    return render(request, 'login.html')
+@login_required
+def blog_create(request):
+    if request.method == 'POST':
+        mutable = request.POST._mutable
+        request.POST._mutable = True
+        request.POST._mutable = mutable
+        form = BlogForm(request.POST)
+        if form.is_valid():
+            blog = form.save(commit=False)
+            blog.creator = request.user
+            blog.save()
+            return redirect('blog_view', blog_pk=blog.pk)
+    else:
+        form = BlogForm()
+    context = {'form': form, 'header': "Write your blog post here"}
+    return render(request, 'blog_create.html', context)
 
-def profile(request):
-    return render(request, 'profile.html')
+################ Edit and Delete ####################
+
+@login_required
+def blog_edit(request, blog_pk):
+    blog = Blog.objects.get(id=blog_pk)
+    user = request.user
+    if request.method == 'POST':
+        mutable = request.POST._mutable
+        request.POST._mutable = True
+        request.POST._mutable = mutable
+        form = BlogForm(request.POST, instance=event)
+        if form.is_valid():
+            event = form.save()
+            return redirect('blog_view', blog_pk=blog.pk)
+    else:
+        form = BlogForm(instance=blog)
+    context = {'form': form, 'header': f"Edit {blog.title}", 'blog': blog, 'user': user}
+    return render(request, 'blog_create.html', context)
+
+
+@login_required
+def blog_delete(request, blog_pk):
+    blog = Blog.objects.get(id=blog_pk)
+    blog.delete()
+    return render('blog_main') 

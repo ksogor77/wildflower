@@ -2,5 +2,27 @@
 {% load static %}
 
 {% block content %}
-    <h1>Create your blog here!</h1>
+    {% if blog %}
+        {% if blog.creator == user %}
+            <section class="form-section blog-create-form">
+                <h1>{{header}}</h1>
+                <form method="POST" class="blog-create-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </section>
+        {% else %}
+            <h3>Error: You can only edit blog posts that you have written.</h3>
+        {% endif %}
+    {% else %}
+        <section class="form-section blog-create-form">
+            <h1>{{header}}</h1>
+            <form method="POST" class="event-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </section>
+    {% endif %}
 {% endblock %}

@@ -28,3 +28,7 @@ body {
 .mission-statement {
     background-color: var(--brick);
 }
+
+.card {
+    margin: 30px;
+}
