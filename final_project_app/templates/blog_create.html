@@ -3,7 +3,7 @@
 
 {% block content %}
     {% if blog %}
-        {% if blog.creator == user %}
+        {% if blog.user_name == user %}
             <section class="form-section blog-create-form">
                 <h1>{{header}}</h1>
                 <form method="POST" class="blog-create-form">

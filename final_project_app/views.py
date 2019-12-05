@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 from django.template import RequestContext
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import Profile, Article, Blog
 from .forms import BlogForm
+from .models import Profile, Article, Blog
+
 
 # Create your views here.
 
@@ -28,12 +29,12 @@ def article_view(request):
 def article_create(request):
     return render(request, 'article_create.html')
 
+
+############# Blog Show and Create ###################
 def blog_main(request):
     blogs = Blog.objects.all()
     context = {'blogs': blogs}
     return render(request, 'blog_main.html', context)
-
-############# Blog Show and Create ###################
 
 @csrf_exempt
 def blog_view(request, blog_pk):
@@ -60,15 +61,15 @@ def blog_create(request):
 @login_required
 def blog_edit(request, blog_pk):
     blog = Blog.objects.get(id=blog_pk)
-    user = request.user
+    blog.user_name = request.user
     if request.method == 'POST':
-        form = BlogForm(request.POST, instance=event)
+        form = BlogForm(request.POST, instance=blog)
         if form.is_valid():
             blog = form.save()
             return redirect('blog-view', blog_pk=blog.pk)
     else:
         form = BlogForm(instance=blog)
-    context = {'form': form, 'header': f"Edit {blog.title}", 'blog': blog, 'user': user}
+    context = {'form': form, 'header': f"Edit {blog.title}", 'blog': blog}
     return render(request, 'blog_create.html', context)
 
 
@@ -76,7 +77,7 @@ def blog_edit(request, blog_pk):
 def blog_delete(request, blog_pk):
     blog = Blog.objects.get(id=blog_pk)
     blog.delete()
-    return render('blog-main') 
+    return render(request, 'blog_main.html') 
 
 ############# Article Show and Create ########################
 
