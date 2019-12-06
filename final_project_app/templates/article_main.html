@@ -3,35 +3,11 @@
 
 {% block content %}
     <h1>Article Main Page</h1>
+    {% for article in articles %}
         <section class="container row grid">
             <div class="card row grid col-md-4">
-                <h4 class="card-title">Article Title</h4>
-            </div>
-            <div class="card row grid col-md-4">
-                <h4 class="card-title">Article Title</h4>
-            </div>
-            <div class="card row grid col-md-4">
-                <h4 class="card-title">Article Title</h4>
-            </div>
-            <div class="card row grid col-md-4">
-                <h4 class="card-title">Article Title</h4>
-            </div>
-            <div class="card row grid col-md-4">
-                <h4 class="card-title">Article Title</h4>
-            </div>
-            <div class="card row grid col-md-4">
-                <h4 class="card-title">Article Title</h4>
-            </div>
-            <div class="card row grid col-md-4">
-                <h4 class="card-title">Article Title</h4>
-            </div>
-            <div class="card row grid col-md-4">
-                <h4 class="card-title">Article Title</h4>
-            </div>
-            <div class="card row grid col-md-4">
-                <h4 class="card-title">Article Title</h4>
+                <a href="{% url 'article-view' article_pk=article.pk %}">{{article.title}}</a>
             </div>
         </section>
-
-
+    {% endfor %}
 {% endblock %}

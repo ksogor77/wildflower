@@ -2,7 +2,18 @@
 {% load static %}
 
 {% block content %}
+    <section class="article-view-section container">
+        <div class="container">
+            <h1>{{article.title}}</h1>
+            <p>{{article.body}}</p>
+        </div>
 
-<h1>View article here</h1>
+        {% if article.user_name == user %}
+        <div class="btn-container container">
+                <a href="{% url 'article-edit' blog_pk=blog.pk %}"><button type="submit" class="article-edit btn btn-success">Edit</button></a>
+                <a href="{% url 'article-delete' blog_pk=blog.pk %}"><button type="submit" class="article-delete btn btn-danger">Delete</button></a>
+        </div>
+        {% endif %}
+    </section>
 
 {% endblock %}

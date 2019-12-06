@@ -3,6 +3,28 @@
 
 {% block content %}
 
-<h1>Create your article!</h1>
+{% if article %}
+        {% if article.user_name == user %}
+            <section class="form-section article-create-form">
+                <h1>{{header}}</h1>
+                <form method="POST" class="article-create-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </section>
+        {% else %}
+            <h3>Error: You can only edit articles that you have written.</h3>
+        {% endif %}
+    {% else %}
+        <section class="form-section article-create-form">
+            <h1>{{header}}</h1>
+            <form method="POST" class="article-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </section>
+    {% endif %}
 
 {% endblock %}

@@ -5,11 +5,13 @@ from . import views
 urlpatterns = [
     path('', views.landing, name='landing'),
     path('article/main/', views.article_main, name='article-main'),
-    path('article/view/', views.article_view, name='article-view'),
+    path('article/view/<int:article_pk>/', views.article_view, name='article-view'),
     path('article/create/', views.article_create, name='article-create'),
+    path('article/edit/<int:article_pk>/', views.article_edit, name="article-edit"),
+    path('article/delete/<int:article_pk>/', views.article_delete, name="article-delete"),
     path('blog/main/', views.blog_main, name='blog-main'),
-    path('blog/view/<int:blog_pk>', views.blog_view, name='blog-view'),
+    path('blog/view/<int:blog_pk>/', views.blog_view, name='blog-view'),
     path('blog/create/', views.blog_create, name='blog-create'),
-    path('blog/<int:blog_pk>/edit/', views.blog_edit, name='blog-edit'),
-    path('blog/<int:blog_pk>/delete/', views.blog_delete, name='blog-delete')
+    path('blog/edit/<int:blog_pk>/', views.blog_edit, name='blog-edit'),
+    path('blog/delete/<int:blog_pk>/', views.blog_delete, name='blog-delete')
 ]

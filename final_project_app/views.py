@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
-from .forms import BlogForm
+from .forms import BlogForm, ArticleForm
 from .models import Profile, Article, Blog
 
 
@@ -19,15 +19,6 @@ def test(request):
 
 def landing(request):
     return render(request, 'landing.html')
-
-def article_main(request):
-    return render(request, 'article_main.html')
-
-def article_view(request):
-    return render(request, 'article_view.html')
-
-def article_create(request):
-    return render(request, 'article_create.html')
 
 
 ############# Blog Show and Create ###################
@@ -81,5 +72,51 @@ def blog_delete(request, blog_pk):
 
 ############# Article Show and Create ########################
 
+def article_main(request):
+    articles = Article.objects.all()
+    context = {'articles': articles}
+    return render(request, 'article_main.html', context)
+
+@csrf_exempt
+def article_view(request, article_pk):
+    article = Article.objects.get(id=article_pk)
+    context = {'article': article}
+    return render(request, 'article_view.html', context)
+
+@login_required
+def article_create(request):
+    if request.method == 'POST':
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            article = form.save(commit=False)
+            article.user_name = request.user
+            article.save()
+            return redirect('article-view', article_pk=article.pk)
+    else:
+        form = ArticleForm()
+    context = {'form': form, 'header': "Write your article here"}
+    return render(request, 'article_create.html', context)
+
 
 ############## Article Edit and Delete ######################
+
+@login_required
+def article_edit(request, article_pk):
+    article = Article.objects.get(id=article_pk)
+    article.user_name = request.user
+    if request.method == 'POST':
+        form = ArticleForm(request.POST, instance=article)
+        if form.is_valid():
+            article = form.save()
+            return redirect('article-view', article_pk=article.pk)
+    else:
+        form = ArticleForm(instance=article)
+    context = {'form': form, 'header': f"Edit {article.title}", 'article': article}
+    return render(request, 'article_create.html', context)
+
+
+@login_required
+def article_delete(request, article_pk):
+    article = Article.objects.get(id=article_pk)
+    article.delete()
+    return render(request, 'article_main.html') 

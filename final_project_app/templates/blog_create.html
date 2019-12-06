@@ -18,7 +18,7 @@
     {% else %}
         <section class="form-section blog-create-form">
             <h1>{{header}}</h1>
-            <form method="POST" class="event-form">
+            <form method="POST" class="blog-form">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-success">Submit</button>
