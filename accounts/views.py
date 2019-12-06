@@ -73,7 +73,7 @@ def profile(request):
     return render(request, 'profile.html', context)
 
 @login_required
-def prof_pic_edit(request):
+def profile_edit(request):
     user = request.user
     username = user.username
     profile = Profile.objects.get(user_id=user.id)

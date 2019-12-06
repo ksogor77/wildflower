@@ -13,7 +13,7 @@ class Article(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
-    user_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='article_author')
+    user_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='articles')
 
     def __str__(self):
         return self.title
@@ -22,7 +22,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
-    user_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_author')
+    user_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blogs')
 
     def __str__(self):
         return self.title

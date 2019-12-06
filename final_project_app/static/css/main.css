@@ -19,10 +19,14 @@
     text-decoration-color: var(--white)!important;
 }
 
+/* .main-image {
+    border-radius: 20%;
+} */
 
 body {
     background-color: var(--light-aqua);
     margin-top: 200px;
+    padding-left: 20px;
 }
 
 .mission-statement {
@@ -32,3 +36,11 @@ body {
 .card {
     margin: 30px;
 }
+
+/* .profile-articles-container {
+    
+}
+
+.profile-blogs-container {
+
+} */
