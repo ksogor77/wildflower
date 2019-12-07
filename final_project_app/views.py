@@ -20,6 +20,9 @@ def test(request):
 def landing(request):
     return render(request, 'landing.html')
 
+def parent_teacher(request):
+    return render(request, 'parent-teacher.html')
+
 
 ############# Blog Show and Create ###################
 def blog_main(request):

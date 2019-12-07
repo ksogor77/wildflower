@@ -1,22 +1,31 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 :root {
     --light-aqua: #B2DBD5;
     --dark-aqua: #2B616D;
     --white: #FFFFFF;
     --brick: #FA8D62;
+    --text-primary: #2B616D;
+    --text-secondary: #FA8D62;
+    --font-primary: 'Lobster', cursive!important;
+    --font-secondary: 'Indie Flower', cursive;
 }
 
 .navbar {
     background-color: var(--dark-aqua)!important;
     text-decoration-color: var(--white)!important;
+    font-family: var(--font-primary);
 }
 
 .nav-link {
     text-decoration-color: var(--white)!important;
+    font-family: var(--font-primary);
+}
+
+.header {
+    font-family: var(--font-primary);
+}
+
+h1 {
+    font-family: var(--font-primary);
 }
 
 /* .main-image {
@@ -25,16 +34,19 @@
 
 body {
     background-color: var(--light-aqua);
-    margin-top: 200px;
+    margin-top: 100px;
     padding-left: 20px;
+    margin-left: 30px;
 }
 
 .mission-statement {
     background-color: var(--brick);
+    font-family: var(--font-secondary);
 }
 
 .card {
     margin: 30px;
+    font-family: var(--font-secondary);
 }
 
 /* .profile-articles-container {
