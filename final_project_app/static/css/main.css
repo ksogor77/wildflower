@@ -1,8 +1,13 @@
 :root {
-    --light-aqua: #B2DBD5;
+    --light-aqua: #B2DBD2;
     --dark-aqua: #2B616D;
     --white: #FFFFFF;
     --brick: #FA8D62;
+    --blue: #048FB4;
+    --dark-cyan: #04B4A0;
+    --teal: #056067;
+    --crimson: #D61A2A;
+    --pale-violet: #CF74AF;
     --text-primary: #2B616D;
     --text-secondary: #FA8D62;
     --font-primary: 'Lobster', cursive!important;
@@ -36,7 +41,7 @@ body {
     background-color: var(--light-aqua);
     margin-top: 100px;
     padding-left: 20px;
-    margin-left: 30px;
+    padding-right: 20px;
 }
 
 .mission-statement {
@@ -49,10 +54,14 @@ body {
     font-family: var(--font-secondary);
 }
 
-/* .profile-articles-container {
-    
+.profile-articles-container {
+    background-color: var(--brick)!important;
 }
 
 .profile-blogs-container {
+    background-color: var(--brick)!important;
+}
 
-} */
+.quote-container {
+    background-color: var(--brick);
+}
