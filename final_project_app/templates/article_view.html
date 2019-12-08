@@ -4,14 +4,15 @@
 {% block content %}
     <section class="article-view-section container">
         <div class="container">
-            <h1>{{article.title}}</h1>
-            <p>{{article.body}}</p>
+            <h1 class="article-title">{{article.title}}</h1>
+            <div class="article-spacer"></div>
+            <p class="article-body">{{article.body}}</p>
         </div>
 
         {% if article.user_name == user %}
-        <div class="btn-container container">
-                <a href="{% url 'article-edit' article_pk=article.pk %}"><button type="submit" class="article-edit btn btn-success">Edit</button></a>
-                <a href="{% url 'article-delete' article_pk=article.pk %}"><button type="submit" class="article-delete btn btn-danger">Delete</button></a>
+        <div class="btn-container article-buttons container">
+                <a href="{% url 'article-edit' article_pk=article.pk %}"><button type="submit" class="article-edit btn bg-dark text-light">Edit</button></a>
+                <a href="{% url 'article-delete' article_pk=article.pk %}"><button type="submit" class="article-delete btn bg-dark text-light">Delete</button></a>
         </div>
         {% endif %}
     </section>

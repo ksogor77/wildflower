@@ -2,10 +2,11 @@
 {% load static %}
 
 {% block content %}
-    <h1>Blog Main Page</h1>
+    <h1 class="blog-header">Blog Main Page</h1>
+    <div class="blog-spacer"></div>
     {% for blog in blogs %}
     <section class="container row grid">
-        <div class="card row grid col-md-4">
+        <div class="card blog-card row grid col-md-4">
             <a href="{% url 'blog-view' blog_pk=blog.pk %}">{{blog.title}}</a>
         </div>
     </section>

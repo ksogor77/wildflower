@@ -38,6 +38,7 @@
 body {
     background-color: var(--light-aqua);
     padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 h1 {
@@ -145,6 +146,92 @@ h3 {
 }
 
 .article-spacer {
+    height: 120px;
+    width: 100%;
+}
+
+/* Article View */
+
+.article-title {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.article-body {
+    padding-bottom: 20px;
+}
+
+.article-buttons {
+    position: relative;
+    left: 44%;
+}
+
+/* Blog Main */
+
+.blog-card {
+    background-color: var(--white);
+    width: 400px;
+    height: 100px;
+    padding: 30px;
+    position: relative;
+    left: 43%;
+    padding-top: 40px;
+    padding-left: 55px;
+    transform: translate(-50%,-50%);
+    box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
+}
+
+.blog-header {
+    position: absolute;
+    left: 42%;
+    margin-bottom: 30px;
+}
+
+.blog-spacer {
+    height: 120px;
+    width: 100%;
+}
+
+/* Blog View */
+
+.blog-title {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.blog-body {
+    padding-bottom: 20px;
+}
+
+.blog-buttons {
+    position: relative;
+    left: 44%;
+}
+
+/* Parent-Teacher Resources */
+
+.parent-card {
+    background-color: var(--white);
+    width: 400px;
+    height: 100px;
+    padding: 30px;
+    position: relative;
+    left: 43%;
+    padding-top: 40px;
+    padding-left: 55px;
+    transform: translate(-50%,-50%);
+    box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
+}
+
+.parent-header {
+    position: absolute;
+    left: 33%;
+    margin-bottom: 30px;
+}
+
+.parent-spacer {
     height: 120px;
     width: 100%;
 }
