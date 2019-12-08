@@ -10,8 +10,8 @@
 
         {% if blog.user_name == user %}
         <div class="btn-container container">
-                <a href="{% url 'blog-edit' blog_pk=blog.pk %}"><button type="submit" class="blog-edit btn btn-success">Edit</button></a>
-                <a href="{% url 'blog-delete' blog_pk=blog.pk %}"><button type="submit" class="blog-delete btn btn-danger">Delete</button></a>
+            <a href="{% url 'blog-edit' blog_pk=blog.pk %}"><button type="submit" class="blog-edit btn btn-success">Edit</button></a>
+            <a href="{% url 'blog-delete' blog_pk=blog.pk %}"><button type="submit" class="blog-delete btn btn-danger">Delete</button></a>
         </div>
         {% endif %}
     </section>
