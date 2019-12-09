@@ -3,7 +3,8 @@
 
 {% block content %}
 
-<h1>Login</h1>
+<div class="login-container container">
+    <h1 class="login-header">Login</h1>
     
     {% if error %}
         <p style="background-color:firebrick;">{{error}}</p>
@@ -21,11 +22,11 @@
                 <input class="form-control" type="password" name='password' maxlength="25" minlength="4" required>
             </p>
             <div class="auth-btn">
-                <button class="btn btn-success" type="submit">Login</button>
+                <button class="btn login-btn bg-dark text-light" type="submit">Login</button>
             </div>
         </form>
     </section>
-
+</div>
 
 
 {% endblock%}

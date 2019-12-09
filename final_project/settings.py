@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'final_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'youth',
+        'NAME': 'youth.sql',
     }
 }
 
