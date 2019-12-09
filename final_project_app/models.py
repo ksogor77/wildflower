@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     image_link = models.TextField()
-    # image_upload = models.ImageField(upload_to='prof_images/')
 
     def __str__(self):
         return self.user.username
@@ -26,4 +25,12 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    body = models.TextField()
+    date_created = models.DateTimeField(auto_now_add=True)
+    user_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
+
+    def __str__(self):
+        return self.body
 

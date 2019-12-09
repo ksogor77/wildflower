@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
 from .forms import BlogForm, ArticleForm
-from .models import Profile, Article, Blog
+from .models import Profile, Article, Blog, Comment
 
 
 # Create your views here.
@@ -123,3 +123,5 @@ def article_delete(request, article_pk):
     article = Article.objects.get(id=article_pk)
     article.delete()
     return render(request, 'article_main.html') 
+
+########### Comments ####################

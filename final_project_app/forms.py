@@ -1,6 +1,6 @@
 from django import forms
 
-from . models import Profile, Blog, Article
+from . models import Profile, Blog, Article, Comment
 
 class ProfPicForm(forms.ModelForm):
     class Meta:
@@ -26,4 +26,12 @@ class ArticleForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control col-md-6', 'style': 'margin: 0 auto'}),
             'body': forms.Textarea(attrs={'class': 'form-control col-md-8', 'style': 'margin: 0 auto'}),
+        }
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('body',)
+        widgets = {
+            'body': forms.Textarea(attrs={'class': 'form-control col-md-6', 'style': 'margin: 0 auto'}),
         }
