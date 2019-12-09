@@ -125,3 +125,38 @@ def article_delete(request, article_pk):
     return render(request, 'article_main.html') 
 
 ########### Comments ####################
+
+@login_required
+def comment_create(request):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user_name = request.user
+            comment.save()
+            return redirect('blog-view', blog_pk=blog.pk)
+    else:
+        form = CommentForm()
+    context = {'form': form}
+    return render(request, 'blog_create.html', context)
+
+@login_required
+def comment_edit(request, comment_pk):
+    comment = Comment.objects.get(id=comment_pk)
+    comment.user_name = request.user
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            comment = form.save()
+            return redirect('blog-view', blog_pk=blog.pk)
+    else:
+        form = CommentForm(instance=comment)
+    context = {'form': form, 'comment': comment}
+    return render(request, 'blog-view.html', context)
+
+
+@login_required
+def comment_delete(request, comment_pk):
+    comment = Comment.objects.get(id=comment_pk)
+    comment.delete()
+    return render(request, 'blog_main.html') 

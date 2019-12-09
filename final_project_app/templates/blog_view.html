@@ -16,4 +16,26 @@
         </div>
         {% endif %}
     </section>
+    <section class="form-section comment-form-container">
+        <h1 class="header-container">Comments</h1>
+        <div class="comment-spacer"></div>
+        <form method="POST" class="comment-form">
+            {% csrf_token %}
+            <p>
+                <label for="comment">Comment</label>
+                <input class="form-control" type="text" name="comment" required maxlength="255" minlength="1">
+            </p>
+            <button type="submit" class="btn bg-dark text-light">Submit</button>
+        </form>
+    </section>
+    <section class="container comment-section">
+        {% for comment in comments %}
+            <div class="comment">{{comment.body}}</div>
+            <div class="btn-container blog-buttons container">
+                <a href="{% url 'comment-edit' comment_pk=comment.pk %}"><button type="submit" class="comment-edit btn bg-dark text-light">Edit</button></a>
+                <a href="{% url 'comment-delete' comment_pk=comment.pk %}"><button type="submit" class="comment-delete btn bg-dark text-light">Delete</button></a>
+            </div>
+        {% endfor %}
+    </section>
+
 {% endblock %}
