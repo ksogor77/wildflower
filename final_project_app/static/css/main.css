@@ -59,8 +59,11 @@ h3 {
     left: 26%;
     top: 37%;
     transform: translate(-50%,-50%);
-    /* box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24); */
 }
+
+/* .img {
+    float: right;
+} */
 
 .mission-statement {
     background-color: var(--pale-violet);
@@ -78,14 +81,6 @@ h3 {
 .card {
     margin: 30px;
     font-family: var(--font-secondary);
-}
-
-.profile-articles-container {
-    background-color: var(--brick)!important;
-}
-
-.profile-blogs-container {
-    background-color: var(--brick)!important;
 }
 
 .quote-container1 {
@@ -167,6 +162,13 @@ h3 {
     left: 44%;
 }
 
+/* Article Create */
+
+.article-create-form {
+    padding-left: 60px;
+    line-height: 1.6em;
+}
+
 /* Blog Main */
 
 .blog-card {
@@ -210,6 +212,13 @@ h3 {
     left: 44%;
 }
 
+/* Blog Create */
+
+.blog-create-form {
+    padding-left: 60px;
+    line-height: 1.6em;
+}
+
 /* Parent-Teacher Resources */
 
 .parent-card {
@@ -235,3 +244,51 @@ h3 {
     height: 120px;
     width: 100%;
 }
+
+/* Profile View */
+
+.profile-header {
+    position: absolute;
+    left: 42%;
+    margin-bottom: 30px;
+}
+
+.profile-section {
+    position: relative;
+    padding-top: 140px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    height: 60%;
+}
+
+.profile-articles-container {
+    background-color: var(--pale-violet)!important;
+    position: relative;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.profile-blogs-container {
+    background-color: var(--pale-violet)!important;
+    position: relative;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.box {
+    position: relative;
+    float: right;
+    width: 50%; 
+    padding: 25px; 
+  }
+
+  .create-article-btn {
+    position: relative;
+    float: right;
+  }
+
+  .create-blog-btn {
+    position: relative;
+    float: right;
+  }

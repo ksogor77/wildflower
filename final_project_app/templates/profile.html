@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<h1>Welcome, {{ username }}</h1>
+<h1 class="profile-header">Welcome, {{ username }}</h1>
 
 <section class="profile-container row">
     <section class="profile-personal col-md-4">
@@ -11,7 +11,9 @@
                 <section class="prof-pic-section">
                     <img src="{{ prof_pic_link }}" alt="profile picture">
                     <div class="prof-pic-btn prof-pic-btn-change">
-                        <a href="{% url 'profile-edit' %}"><button class="btn btn-success edit-prof-pic">Change</button></a>
+                        <a href="{% url 'profile-edit' %}"><button class="btn bg-dark text-light edit-prof-pic">Change</button></a>
+                        <a href="{% url 'article-create' %}"><button class="btn bg-dark text-light create-article-btn">Write your new article</button></a>
+                        <a href="{% url 'blog-create' %}"><button class="btn bg-dark text-light create-blog-btn">Create your new blog</button></a>
                     </div>
                 </section>
             {% else %}
@@ -21,13 +23,13 @@
                         {% csrf_token %}
                         {{ form.as_p }}
                         <div class="prof-pic-btn">
-                            <button type="submit" class="btn btn-success">Save</button>
+                            <button type="submit" class="btn bg-dark text-light">Save</button>
                         </div>
                     </form>
                 </section>
             {% endif %}
         </div>
-        <div class="profile-articles-container row">
+        <div class="profile-articles-container box row">
             <h1>Your Articles</h1>
            {% if user.articles %}
             <section class="container row grid">
@@ -42,7 +44,7 @@
             </section>
             {% endif %}
         </div>
-        <div class="profile-blogs-container row">
+        <div class="profile-blogs-container box row">
             <h1>Your Blogs</h1>
             {% if user.blogs %}
             <section class="container row grid">

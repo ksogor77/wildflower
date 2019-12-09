@@ -7,10 +7,11 @@
         {% if article.user_name == user %}
             <section class="form-section article-create-form">
                 <h1>{{header}}</h1>
+                <div class="article-spacer"></div>
                 <form method="POST" class="article-create-form">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn bg-dark text-light">Submit</button>
                 </form>
             </section>
         {% else %}
@@ -19,10 +20,11 @@
     {% else %}
         <section class="form-section article-create-form">
             <h1>{{header}}</h1>
+            <div class="article-spacer"></div>
             <form method="POST" class="article-form">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn bg-dark text-light">Submit</button>
             </form>
         </section>
     {% endif %}
