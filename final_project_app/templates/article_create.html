@@ -6,7 +6,7 @@
 {% if article %}
         {% if article.user_name == user %}
             <section class="form-section article-create-form">
-                <h1>{{header}}</h1>
+                <h1 class="header-container">{{header}}</h1>
                 <div class="article-spacer"></div>
                 <form method="POST" class="article-create-form">
                     {% csrf_token %}
@@ -19,7 +19,7 @@
         {% endif %}
     {% else %}
         <section class="form-section article-create-form">
-            <h1>{{header}}</h1>
+            <h1 class="header-container">{{header}}</h1>
             <div class="article-spacer"></div>
             <form method="POST" class="article-form">
                 {% csrf_token %}

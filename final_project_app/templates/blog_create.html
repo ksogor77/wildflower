@@ -5,7 +5,7 @@
     {% if blog %}
         {% if blog.user_name == user %}
             <section class="form-section blog-create-form">
-                <h1>{{header}}</h1>
+                <h1 class="header-container">{{header}}</h1>
                 <div class="blog-spacer"></div>
                 <form method="POST" class="blog-create-form">
                     {% csrf_token %}
@@ -18,7 +18,7 @@
         {% endif %}
     {% else %}
         <section class="form-section blog-create-form">
-            <h1>{{header}}</h1>
+            <h1 class="header-container">{{header}}</h1>
             <div class="blog-spacer"></div>
             <form method="POST" class="blog-form">
                 {% csrf_token %}

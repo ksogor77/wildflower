@@ -2,10 +2,11 @@
 {% load static %}
 
 {% block content %}
-<h1 class="profile-header">Welcome, {{ username }}</h1>
+<h1 class="container quote-container">"The earth laughs in flowers." -Emerson</h1>
+<h1 class="profile-header header-container container">Welcome, {{ username }}</h1>
 
 <section class="profile-container row">
-    <section class="profile-personal col-md-4">
+    <section class="profile-personal col-md">
         <div class="profile-section pic-or-form">
             {% if prof_pic_link %}
                 <section class="prof-pic-section">
@@ -29,38 +30,33 @@
                 </section>
             {% endif %}
         </div>
-        <div class="profile-articles-container box row">
-            <h1>Your Articles</h1>
-           {% if user.articles %}
-            <section class="container row grid">
-                {% for article in user.articles.all %}
-                    <div class="card row grid col-md-4">
-                        <a href="{% url 'article-view' article_pk=article.pk %}">{{article.title}}</a>
-                    </div>
-                {% endfor %}
-                {% else %}
-                    <h3>You have not written any articles.</h3>
-                    <a href="{% url 'article-create' %}"><button>Get started here</button></a>
-            </section>
-            {% endif %}
-        </div>
-        <div class="profile-blogs-container box row">
-            <h1>Your Blogs</h1>
+        <div class="profile-blogs-container container card">
+            <h1>Your Blogs and Articles</h1>
             {% if user.blogs %}
-            <section class="container row grid">
+            <section>
                 {% for blog in user.blogs.all %}
-                    <div class="card row grid col-md-4">
+                    <div class="blog-card">
                         <a href="{% url 'blog-view' blog_pk=blog.pk %}">{{blog.title}}</a>
                     </div>
                 {% endfor %}
                 {% else %}
-                    <h3>You have not written any blogs.</h3>
+                    <h3 class="card">You have not written any blogs.</h3>
                     <a href="{% url 'blog-create' %}"><button>Get started here</button></a>
             </section>
             {% endif %}
-           
+           {% if user.articles %}
+            <section class="container">
+                {% for article in user.articles.all %}
+                    <div class="article-card">
+                        <a href="{% url 'article-view' article_pk=article.pk %}">{{article.title}}</a>
+                    </div>
+                {% endfor %}
+                {% else %}
+                    <h3 class="card">You have not written any articles.</h3>
+                    <a href="{% url 'article-create' %}"><button>Get started here</button></a>
+            </section>
+            {% endif %}
         </div>
-
     </section>
 </section>
 

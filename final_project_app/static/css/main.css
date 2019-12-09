@@ -1,15 +1,10 @@
 :root {
-    --light-aqua: #B2DBD2;
-    --dark-aqua: #2B616D;
+    --slate-blue: #764AC4;
+    --midnight-blue: #141F38;
+    --dark-slate-gray: #455A4B;
+    --tan: #CE848C;
+    --gray: #858C7A;
     --white: #FFFFFF;
-    --brick: #FA8D62;
-    --blue: #048FB4;
-    --dark-cyan: #04B4A0;
-    --teal: #056067;
-    --crimson: #D61A2A;
-    --pale-violet: #CF74AF;
-    --text-primary: #2B616D;
-    --text-secondary: #FA8D62;
     --font-primary: 'Acme', sans-serif;
     --font-secondary: 'Indie Flower', cursive;
 }
@@ -21,7 +16,7 @@
 }
 
 .navbar {
-    background-color: var(--teal)!important;
+    background-color: var(--midnight-blue)!important;
     text-decoration-color: var(--white)!important;
     font-family: var(--font-primary);
 }
@@ -36,9 +31,16 @@
 }
 
 body {
-    background-color: var(--light-aqua);
+    background-color: var(--gray);
+    background-image: url('https://images.unsplash.com/photo-1529346414006-cf73aa3243d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+    width: 100%;
+    height: 100%;
     padding-top: 100px;
     padding-bottom: 100px;
+}
+
+.header-container {
+    background-color: var(--slate-blue);
 }
 
 h1 {
@@ -47,32 +49,18 @@ h1 {
 
 h3 {
     font-family: var(--font-primary);
-    /* background-color: var(--crimson); */
 }
 
 /* Landing Page */
-.main-image {
-    width:470px;
-    height: 300px;
-    padding: 23px;
-    position: absolute;
-    left: 26%;
-    top: 37%;
-    transform: translate(-50%,-50%);
-}
-
-/* .img {
-    float: right;
-} */
 
 .mission-statement {
-    background-color: var(--pale-violet);
+    background-color: var(--slate-blue);
     font-family: var(--font-secondary);
-    width: 600px;
+    width: 900px;
     height: 300px;
     padding:23px;
     position: absolute;
-    left: 68%;
+    left: 50%;
     top: 40%;
     transform: translate(-50%,-50%);
     box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
@@ -83,8 +71,12 @@ h3 {
     font-family: var(--font-secondary);
 }
 
+.quote-container {
+    background-color: var(--slate-blue);
+}
+
 .quote-container1 {
-    background-color: var(--pale-violet);
+    background-color: var(--tan);
     width: 300px;
     height: 200px;
     padding: 30px;
@@ -96,7 +88,7 @@ h3 {
 }
 
 .quote-container2 {
-    background-color: var(--pale-violet);
+    background-color: var(--tan);
     width: 300px;
     height: 200px;
     padding: 30px;
@@ -108,7 +100,7 @@ h3 {
 }
 
 .quote-container3 {
-    background-color: var(--pale-violet);
+    background-color: var(--tan);
     width: 300px;
     height: 200px;
     padding: 30px;
@@ -122,7 +114,7 @@ h3 {
 /* Article Main */
 
 .article-card {
-    background-color: var(--white);
+    background-color: var(--tan);
     width: 400px;
     height: 100px;
     padding: 30px;
@@ -172,7 +164,7 @@ h3 {
 /* Blog Main */
 
 .blog-card {
-    background-color: var(--white);
+    background-color: var(--tan);
     width: 400px;
     height: 100px;
     padding: 30px;
@@ -222,7 +214,7 @@ h3 {
 /* Parent-Teacher Resources */
 
 .parent-card {
-    background-color: var(--white);
+    background-color: var(--tan);
     width: 400px;
     height: 100px;
     padding: 30px;
@@ -262,26 +254,31 @@ h3 {
     height: 60%;
 }
 
-.profile-articles-container {
-    background-color: var(--pale-violet)!important;
+/* .profile-articles-container {
+    background-color: var(--tan)!important;
     position: relative;
-    padding-left: 30px;
-    padding-top: 30px;
-}
+    width: 20%;
+    height: 70%;
+    float: right;
+    padding: 5px;
+    margin: 5px;
+} */
 
 .profile-blogs-container {
-    background-color: var(--pale-violet)!important;
+    background-color: var(--tan)!important;
     position: relative;
-    padding-left: 30px;
-    padding-top: 30px;
+    width: 70%;
+    height: 100%;
+    padding: 20px;
+    margin: 5px;
 }
 
-.box {
+/* .box {
     position: relative;
     float: right;
     width: 50%; 
     padding: 25px; 
-  }
+  } */
 
   .create-article-btn {
     position: relative;
