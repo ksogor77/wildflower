@@ -5,7 +5,7 @@
     <section class="blog-view-section container">
         <div class="container">
             <h1 class="blog-title">{{blog.title}}</h1>
-            <div class="blog-spacer"></div>
+            <div class="blog-view-spacer"></div>
             <p class="blog-body">{{blog.body}}</p>
         </div>
 
@@ -25,12 +25,12 @@
                 <label for="comment">Comment</label>
                 <input class="form-control" type="text" name="comment" required maxlength="255" minlength="1">
             </p>
-            <button type="submit" class="btn bg-dark text-light">Submit</button>
+            <button method="POST" type="submit" class="btn bg-dark text-light"><a class="btn" href="{% url 'comment-create' blog_pk=blog.pk %}"></a>Submit</button>
         </form>
     </section>
     <section class="container comment-section">
-        {% for comment in comments %}
-            <div class="comment">{{comment.body}}</div>
+        {% for comment in blog.all_comments.all %}
+            <div class="comment">{{all_comments.body}}</div>
             <div class="btn-container blog-buttons container">
                 <a href="{% url 'comment-edit' comment_pk=comment.pk %}"><button type="submit" class="comment-edit btn bg-dark text-light">Edit</button></a>
                 <a href="{% url 'comment-delete' comment_pk=comment.pk %}"><button type="submit" class="comment-delete btn bg-dark text-light">Delete</button></a>

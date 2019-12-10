@@ -145,11 +145,11 @@ def comment_create(request, pk, blog_pk):
             comment.user_name = request.user
             comment.blog_id = request.blog
             comment.save()
-            return redirect('blog-view', blog_pk=blog.pk)
+            return render('blog-view', blog_pk=blog.pk)
     else:
         form = CommentForm()
-    context = {'form': form}
-    return render(request, 'blog_create.html', context)
+    context = {'comment': comment}
+    return render(request, 'blog_create.html')
 
 @login_required
 def comment_edit(request, pk, blog_pk, comment_pk):
