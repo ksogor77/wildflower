@@ -27,7 +27,7 @@
     </section>
     <section class="container comment-section">
         {% for comment in blog.all_comments.all %}
-            <div class="comment">{{comment.body}}</div>
+            <div class="comment">{{blog.comment.body}}</div>
             <div class="btn-container blog-buttons container">
                 <a href="{% url 'comment-edit' comment_pk=comment.pk %}"><button type="submit" class="comment-edit btn bg-dark text-light">Edit</button></a>
                 <a href="{% url 'comment-delete' comment_pk=comment.pk %}"><button type="submit" class="comment-delete btn bg-dark text-light">Delete</button></a>

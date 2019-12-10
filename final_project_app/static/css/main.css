@@ -171,6 +171,7 @@ h3 {
     left: 50%;
     transform: translate(-50%);
     margin-bottom: 30px;
+    padding: 10px;
     border-radius: 10px;
 }
 
@@ -286,20 +287,22 @@ h3 {
 }
 
 .comment-form-container {
-    position: relative;
+    position: absolute;
     width: 60%;
+    left: 50%;
+    transform: translate(-50%);
     background-color: var(--tan);
     margin-top: 30px;
-    left: 20%;
     border-radius: 10px;
 }
 
 .comment-section {
-    position: relative;
+    position: absolute;
     width: 60%;
+    left: 50%;
+    transform: translate(-50%);
     background-color: var(--tan);
     margin-top: 30px;
-    left: 20%;
     border-radius: 10px;
 }
 
@@ -401,16 +404,6 @@ h3 {
     transform: translate(-50%);
     border-radius: 20px;
 }
-
-/* .profile-articles-container {
-    background-color: var(--tan)!important;
-    position: relative;
-    width: 20%;
-    height: 70%;
-    float: right;
-    padding: 5px;
-    margin: 5px;
-} */
 
 .profile-blogs-container {
     background-color: var(--tan)!important;

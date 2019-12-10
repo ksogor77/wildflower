@@ -31,10 +31,11 @@ def blog_main(request):
     return render(request, 'blog_main.html', context)
 
 @csrf_exempt
-def blog_view(request, blog_pk):
+def blog_view(request, blog_pk, comment_pk):
     blog = Blog.objects.get(id=blog_pk)
     form = CommentForm()
-    context = {'blog': blog, 'form': form}
+    comment = Comment.objects.get(id=comment_pk)
+    context = {'blog': blog, 'form': form, 'comment': comment}
     return render(request, 'blog_view.html', context)
 
 @login_required
@@ -118,7 +119,6 @@ def article_edit(request, article_pk):
     context = {'form': form, 'header': f"Edit {article.title}", 'article': article}
     return render(request, 'article_create.html', context)
 
-
 @login_required
 def article_delete(request, article_pk):
     article = Article.objects.get(id=article_pk)
@@ -141,7 +141,6 @@ def comment_create(request, pk, blog_pk):
     blog = Blog.objects.get(id=blog_pk)
     if request.method == 'POST':
         form = CommentForm(request.POST)
-        print(form)
         if form.is_valid():
             comment = form.save(commit=False)
             comment.user_name = request.user
@@ -150,7 +149,6 @@ def comment_create(request, pk, blog_pk):
             return redirect('blog-view', blog_pk=blog.pk)
     else:
         form = CommentForm()
-    # context = {'comment': comment}
     return redirect('blog-view', blog_pk=blog.pk)
 
 @login_required
