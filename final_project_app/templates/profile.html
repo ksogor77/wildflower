@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1 class="container profile-quote-container quote-container">"The earth laughs in flowers." -Emerson</h1>
+<h1 class="profile-header header-container container">Welcome, {{ username }}</h1>
+
+<section class="profile-container row">
+    <section class="profile-personal col-md">
+        <div class="profile-section pic-or-form">
+            {% if prof_pic_link %}
+                <section class="prof-pic-section">
+                    <img src="{{ prof_pic_link }}" alt="profile picture">
+                    <div class="prof-pic-btn prof-pic-btn-change">
+                        <a href="{% url 'profile-edit' %}"><button class="btn bg-dark text-light edit-prof-pic">Change</button></a>
+                        <a href="{% url 'article-create' %}"><button class="btn bg-dark text-light create-article-btn">Write your new article</button></a>
+                        <a href="{% url 'blog-create' %}"><button class="btn bg-dark text-light create-blog-btn">Create your new blog</button></a>
+                    </div>
+                </section>
+            {% else %}
+                <section class="prof-pic-section" data-prof-edit="{% url 'profile-edit' %}">
+                    <p>Upload a photo below!</p>
+                    <form method="post" class="profile-pic-form">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="prof-pic-btn">
+                            <button type="submit" class="btn bg-dark text-light">Save</button>
+                        </div>
+                    </form>
+                </section>
+            {% endif %}
+        </div>
+        <div class="profile-blogs-container container card">
+            <h1 class="profile-blogs-header">Your Blogs and Articles</h1>
+            {% if user.blogs %}
+            <section>
+                {% for blog in user.blogs.all %}
+                    <div class="profile-blog-card">
+                        <a href="{% url 'blog-view' blog_pk=blog.pk %}">{{blog.title}}</a>
+                    </div>
+                {% endfor %}
+                {% else %}
+                    <h3 class="card">You have not written any blogs.</h3>
+                    <a href="{% url 'blog-create' %}"><button>Get started here</button></a>
+            </section>
+            {% endif %}
+           {% if user.articles %}
+            <section class="container">
+                {% for article in user.articles.all %}
+                    <div class="article-card">
+                        <a href="{% url 'article-view' article_pk=article.pk %}">{{article.title}}</a>
+                    </div>
+                {% endfor %}
+                {% else %}
+                    <h3 class="card">You have not written any articles.</h3>
+                    <a href="{% url 'article-create' %}"><button>Get started here</button></a>
+            </section>
+            {% endif %}
+        </div>
+    </section>
+</section>
+
+    
+    
+{% endblock %}

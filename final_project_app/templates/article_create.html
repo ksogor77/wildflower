@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if article %}
+        {% if article.user_name == user %}
+            <section class="form-section article-create-form">
+                <h1 class="header-container">{{header}}</h1>
+                <div class="article-spacer"></div>
+                <form method="POST" class="article-create-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn bg-dark text-light">Submit</button>
+                </form>
+            </section>
+        {% else %}
+            <h3>Error: You can only edit articles that you have written.</h3>
+        {% endif %}
+    {% else %}
+        <section class="form-section article-create-form">
+            <h1 class="header-container">{{header}}</h1>
+            <div class="article-spacer"></div>
+            <form method="POST" class="article-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn bg-dark text-light">Submit</button>
+            </form>
+        </section>
+    {% endif %}
+
+{% endblock %}

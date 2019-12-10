@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if blog %}
+        {% if blog.user_name == user %}
+            <section class="form-section blog-create-form">
+                <h1 class="header-container">{{header}}</h1>
+                <div class="blog-spacer"></div>
+                <form method="POST" class="blog-create-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn bg-dark text-light">Submit</button>
+                </form>
+            </section>
+        {% else %}
+            <h3>Error: You can only edit blog posts that you have written.</h3>
+        {% endif %}
+    {% else %}
+        <section class="form-section blog-create-form">
+            <h1 class="header-container">{{header}}</h1>
+            <div class="blog-spacer"></div>
+            <form method="POST" class="blog-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn bg-dark text-light">Submit</button>
+            </form>
+        </section>
+    {% endif %}
+{% endblock %}
