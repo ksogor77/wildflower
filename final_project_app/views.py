@@ -31,11 +31,10 @@ def blog_main(request):
     return render(request, 'blog_main.html', context)
 
 @csrf_exempt
-def blog_view(request, blog_pk, comment_pk):
+def blog_view(request, blog_pk):
     blog = Blog.objects.get(id=blog_pk)
     form = CommentForm()
-    comment = Comment.objects.get(id=comment_pk)
-    context = {'blog': blog, 'form': form, 'comment': comment}
+    context = {'blog': blog, 'form': form}
     return render(request, 'blog_view.html', context)
 
 @login_required
