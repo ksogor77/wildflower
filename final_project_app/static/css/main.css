@@ -127,18 +127,6 @@ h3 {
     border-radius: 10px;
 }
 
-.landing-header {
-    left: 150px;
-}
-
-.landing-subtitle {
-
-}
-
-.statement {
-
-}
-
 .landing-card {
     background-color: var(--tan);
     margin-top: 25%;
@@ -251,7 +239,7 @@ h3 {
 }
 
 .blog-spacer {
-    height: 260px;
+    height: 80px;
     width: 100%;
 }
 
@@ -275,6 +263,24 @@ h3 {
 .blog-buttons {
     position: relative;
     left: 44%;
+    border-radius: 10px;
+}
+
+.comment-form-container {
+    position: relative;
+    width: 60%;
+    background-color: var(--tan);
+    margin-top: 30px;
+    left: 20%;
+    border-radius: 10px;
+}
+
+.comment-section {
+    position: relative;
+    width: 60%;
+    background-color: var(--tan);
+    margin-top: 30px;
+    left: 20%;
     border-radius: 10px;
 }
 
