@@ -162,6 +162,7 @@ h3 {
 
 .article-header {
     position: absolute;
+    background-color: var(--tan)!important;
     top: 40%;
     left: 38%;
     margin-bottom: 30px;
@@ -206,6 +207,10 @@ h3 {
 }
 
 /* Blog Main */
+.blog-quote-container {
+    position: absolute;
+    left: 10%;
+}
 
 .blog-card {
     background-color: var(--tan);
@@ -224,12 +229,15 @@ h3 {
 
 .blog-header {
     position: absolute;
-    left: 42%;
+    background-color: var(--tan)!important;
+    top: 27%;
+    left: 38%;
     margin-bottom: 30px;
+    border-radius: 10px;
 }
 
 .blog-spacer {
-    height: 120px;
+    height: 260px;
     width: 100%;
 }
 
