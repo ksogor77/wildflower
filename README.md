@@ -15,8 +15,6 @@ Wildflower users are lgbtq+ youth ages 12-25, allies, parents and educators.
 - User can access blog and article create pages through links on their profile page
 - User can log out any time through the nav bar
 
-# Link
-
 # Technologies
 - Django
 - Python

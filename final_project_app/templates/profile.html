@@ -35,7 +35,7 @@
             {% if user.blogs %}
             <section>
                 {% for blog in user.blogs.all %}
-                    <div class="blog-card">
+                    <div class="profile-blog-card">
                         <a href="{% url 'blog-view' blog_pk=blog.pk %}">{{blog.title}}</a>
                     </div>
                 {% endfor %}
