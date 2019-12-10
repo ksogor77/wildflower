@@ -1,9 +1,9 @@
 :root {
-    --slate-blue: #764AC4;
-    --midnight-blue: #141F38;
-    --dark-slate-gray: #455A4B;
+    --slate-blue: #AF399C;
+    --midnight-blue: #132F3A;
+    --dark-slate-gray: #527C72;
     --tan: #D2A0C6;
-    --gray: #858C7A;
+    --gray: #734A73;
     --white: #FFFFFF;
     --font-primary: 'Acme', sans-serif;
     --font-secondary: 'Indie Flower', cursive;
@@ -76,8 +76,10 @@ h3 {
     text-align: center;
 }
 
-.login-button {
-    justify-content: center;
+.login-btn {
+    position: relative;
+    left: 42%;
+    border-radius: 10px;
 }
 
 /* Register */
@@ -97,101 +99,77 @@ h3 {
 }
 
 .register-btn {
-    text-align: center;
+    position: relative;
+    left: 42%;
+    border-radius: 10px;
 }
 
 /* Landing Page */
+
+.quote-container {
+    background-color: var(--slate-blue);
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
 
 .mission-statement {
     background-color: var(--slate-blue);
     font-family: var(--font-secondary);
     width: 900px;
     height: 300px;
+    padding-top: 20px;
     padding:23px;
     position: absolute;
-    left: 50%;
+    left: 44%;
     top: 40%;
     transform: translate(-50%,-50%);
     box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
     border-radius: 10px;
 }
 
-.card {
-    margin: 30px;
+.landing-card {
+    background-color: var(--tan);
+    margin-top: 30%;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     font-family: var(--font-secondary);
     border-radius: 10px;
-}
-
-.quote-container {
-    background-color: var(--slate-blue);
-    border-radius: 10px;
-}
-
-.quote-container1 {
-    background-color: var(--tan);
-    width: 300px;
-    height: 200px;
-    padding: 30px;
-    position: absolute;
-    left: 15%;
-    top: 70%;
-    transform: translate(-50%,-50%);
-    box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
-    border-radius: 10px;
-}
-
-.quote-container2 {
-    background-color: var(--tan);
-    width: 300px;
-    height: 200px;
-    padding: 30px;
-    position: absolute;
-    left: 47%;
-    top: 70%;
-    transform: translate(-50%,-50%);
-    box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
-    border-radius: 10px;
-}
-
-.quote-container3 {
-    background-color: var(--tan);
-    width: 300px;
-    height: 200px;
-    padding: 30px;
-    position: absolute;
-    left: 79%;
-    top: 70%;
-    transform: translate(-50%,-50%);
-    box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
-    border-radius: 10px;
+    font-size: 24px bold black;
 }
 
 /* Article Main */
 
+.article-quote-container {
+    position: absolute;
+    left: 10%;
+}
 .article-card {
     background-color: var(--tan);
     width: 400px;
     height: 100px;
+    margin: 15px;
     padding: 30px;
     position: relative;
-    left: 43%;
+    left: 26%;
     padding-top: 15px;
-    padding-left: 55px;
-    transform: translate(-50%,-50%);
     box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
     border-radius: 10px;
     font-size: 24px;
+    font-family: var(--font-secondary);
 }
 
 .article-header {
     position: absolute;
-    left: 42%;
+    top: 40%;
+    left: 38%;
     margin-bottom: 30px;
     border-radius: 10px;
 }
 
 .article-spacer {
-    height: 90px;
+    height: 290px;
     width: 100%;
 }
 

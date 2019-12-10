@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
-from .forms import BlogForm, ArticleForm
+from .forms import BlogForm, ArticleForm, CommentForm
 from .models import Profile, Article, Blog, Comment
 
 
@@ -126,13 +126,24 @@ def article_delete(request, article_pk):
 
 ########### Comments ####################
 
+@csrf_exempt
+def comment_view(request, pk, blog_pk, comment_pk):
+    user = User.objects.get(id=pk)
+    blog = Blog.objects.get(id=blog_pk)
+    comment = Comment.objects.get(id=comment_pk)
+    context = {'comment': comment}
+    return render(request, 'blog_view.html', context)
+
 @login_required
-def comment_create(request):
+def comment_create(request, pk, blog_pk):
+    user = User.objects.get(id=pk)
+    blog = Blog.objects.get(id=blog_pk)
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
             comment.user_name = request.user
+            comment.blog_id = request.blog
             comment.save()
             return redirect('blog-view', blog_pk=blog.pk)
     else:
@@ -141,9 +152,10 @@ def comment_create(request):
     return render(request, 'blog_create.html', context)
 
 @login_required
-def comment_edit(request, comment_pk):
+def comment_edit(request, pk, blog_pk, comment_pk):
+    user = User.objects.get(id=pk)
+    blog = Blog.objects.get(id=blog_pk)
     comment = Comment.objects.get(id=comment_pk)
-    comment.user_name = request.user
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
@@ -152,11 +164,13 @@ def comment_edit(request, comment_pk):
     else:
         form = CommentForm(instance=comment)
     context = {'form': form, 'comment': comment}
-    return render(request, 'blog-view.html', context)
+    return render(request, 'blog-create.html', context)
 
 
 @login_required
-def comment_delete(request, comment_pk):
+def comment_delete(request, pk, blog_pk, comment_pk):
+    user = User.objects.get(id=pk)
+    blog = Blog.objects.get(id=blog_pk)
     comment = Comment.objects.get(id=comment_pk)
     comment.delete()
     return render(request, 'blog_main.html') 
