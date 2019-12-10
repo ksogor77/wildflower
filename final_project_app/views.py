@@ -33,7 +33,8 @@ def blog_main(request):
 @csrf_exempt
 def blog_view(request, blog_pk):
     blog = Blog.objects.get(id=blog_pk)
-    context = {'blog': blog}
+    form = CommentForm()
+    context = {'blog': blog, 'form': form}
     return render(request, 'blog_view.html', context)
 
 @login_required
@@ -140,16 +141,17 @@ def comment_create(request, pk, blog_pk):
     blog = Blog.objects.get(id=blog_pk)
     if request.method == 'POST':
         form = CommentForm(request.POST)
+        print(form)
         if form.is_valid():
             comment = form.save(commit=False)
             comment.user_name = request.user
-            comment.blog_id = request.blog
+            comment.blog_id = request.user
             comment.save()
-            return render('blog-view', blog_pk=blog.pk)
+            return redirect('blog-view', blog_pk=blog.pk)
     else:
         form = CommentForm()
-    context = {'comment': comment}
-    return render(request, 'blog_create.html')
+    # context = {'comment': comment}
+    return redirect('blog-view', blog_pk=blog.pk)
 
 @login_required
 def comment_edit(request, pk, blog_pk, comment_pk):
