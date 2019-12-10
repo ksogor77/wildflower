@@ -109,7 +109,8 @@ h3 {
 .quote-container {
     background-color: var(--slate-blue);
     border-radius: 10px;
-    padding-bottom: 20px;
+    padding: 20px;
+    padding-left: 40px;
 }
 
 .mission-statement {
@@ -117,8 +118,7 @@ h3 {
     font-family: var(--font-secondary);
     width: 900px;
     height: 300px;
-    padding-top: 20px;
-    padding:23px;
+    padding: 24px;
     position: absolute;
     left: 44%;
     top: 40%;
@@ -127,9 +127,21 @@ h3 {
     border-radius: 10px;
 }
 
+.landing-header {
+    left: 150px;
+}
+
+.landing-subtitle {
+
+}
+
+.statement {
+
+}
+
 .landing-card {
     background-color: var(--tan);
-    margin-top: 30%;
+    margin-top: 25%;
     margin-left: 10px;
     margin-right: 10px;
     padding-left: 15px;
@@ -210,6 +222,8 @@ h3 {
 .blog-quote-container {
     position: absolute;
     left: 10%;
+    padding-top: 20px;
+    padding-left: 180px;
 }
 
 .blog-card {
@@ -275,6 +289,17 @@ h3 {
 
 /* Parent-Teacher Resources */
 
+.parent-quote-container {
+    position: absolute;
+    left: 10%;
+    padding-top: 15px;
+    padding-left: 90px;
+}
+
+.parent-cards {
+    margin-top: 200px;
+}
+
 .parent-card {
     background-color: var(--tan);
     width: 400px;
@@ -282,19 +307,24 @@ h3 {
     padding: 30px;
     position: relative;
     left: 43%;
+    margin: 15px;
     padding-top: 15px;
     padding-left: 55px;
     transform: translate(-50%,-50%);
     box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
     border-radius: 10px;
     font-size: 24px;
+    font-family: var(--font-secondary);
+    text-decoration-color: var(--white)!important;
 }
 
 .parent-header {
     background-color: var(--tan);
     position: absolute;
     left: 33%;
+    margin-top: 150px;
     margin-bottom: 30px;
+    padding: 20px;
     border-radius: 10px;
 }
 
