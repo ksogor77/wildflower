@@ -29,6 +29,7 @@
 .nav-link {
     text-decoration-color: var(--white)!important;
     font-family: var(--font-primary);
+    float: right!important;
 }
 
 .navbar li {
@@ -279,6 +280,7 @@ h3 {
 
 .blog-body {
     padding-bottom: 20px;
+    font-family: var(--font-secondary);
 }
 
 .blog-buttons {
@@ -288,24 +290,18 @@ h3 {
 }
 
 .comment-form-container {
-    position: absolute;
     width: 60%;
-    left: 50%;
-    transform: translate(-50%);
     background-color: var(--tan);
-    margin-top: 30px;
-    margin-bottom: 60px;
     border-radius: 10px;
+    margin: 0 auto;
 }
 
 .comment-section {
-    position: absolute;
     width: 60%;
-    left: 50%;
-    transform: translate(-50%);
     background-color: var(--tan);
-    margin-top: 30px;
     border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
 }
 
 /* Blog Create */
