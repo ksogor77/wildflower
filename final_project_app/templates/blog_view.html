@@ -22,12 +22,12 @@
         <form method="POST" action="{% url 'comment-create' pk=user.pk blog_pk=blog.pk %}" class="comment-form">
             {% csrf_token %}
             {{form.as_p}}
-            <button type="submit">Save</button>
+            <button class="btn bg-dark text-light blog-buttons" type="submit">Save</button>
         </form>
     </section>
     <section class="container comment-section">
-        {% for comment in blog.all_comments.all %}
-            <div class="comment">{{blog.comment.body}}</div>
+        {% for comment in comments %}
+            <div class="comment">{{comment.body}}</div>
             <div class="btn-container blog-buttons container">
                 <a href="{% url 'comment-edit' comment_pk=comment.pk %}"><button type="submit" class="comment-edit btn bg-dark text-light">Edit</button></a>
                 <a href="{% url 'comment-delete' comment_pk=comment.pk %}"><button type="submit" class="comment-delete btn bg-dark text-light">Delete</button></a>
