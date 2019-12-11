@@ -34,7 +34,8 @@ def blog_main(request):
 def blog_view(request, blog_pk):
     blog = Blog.objects.get(id=blog_pk)
     form = CommentForm()
-    context = {'blog': blog, 'form': form}
+    comments = Comment.objects.filter(blog_id=blog_pk)
+    context = {'blog': blog, 'form': form, 'comment': comments}
     return render(request, 'blog_view.html', context)
 
 @login_required
