@@ -243,6 +243,7 @@ h3 {
     box-shadow: 3px 11px 20px -4px rgba(0,0,0,0.24);
     border-radius: 10px;
     font-size: 24px;
+    font-family: var(--font-secondary);
 }
 
 .blog-header {
@@ -294,6 +295,7 @@ h3 {
     background-color: var(--tan);
     border-radius: 10px;
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 .comment-section {
@@ -302,6 +304,7 @@ h3 {
     border-radius: 10px;
     margin: 0 auto;
     margin-top: 20px;
+    margin-bottom: 80px;
 }
 
 /* Blog Create */
@@ -425,6 +428,7 @@ h3 {
     top: 40%;
     left: 48%;
     margin: 20px;
+    margin-top: 50px;
     padding-top: 15px;
     padding-left: 55px;
     transform: translate(-50%,-50%);
